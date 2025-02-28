@@ -1,0 +1,21 @@
+@import "modern-normalize";
+@import "@fontsource-variable/red-hat-text";
+
+:root {
+  --grayish-blue: hsl(237, 18%, 59%);
+  --soft-red: hsl(345, 95%, 68%);
+
+  --white: hsl(0, 0%, 100%);
+  --dark-desaturated-blue: hsl(236, 21%, 26%);
+  --very-dark-blue: hsl(235, 16%, 14%);
+  --very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+}
+
+html {
+  font-family: "Red Hat Text Variable", sans-serif;
+  font-size: 1em;
+  color: var(--white);
+  min-height: 100svh;
+  background: url("./assets/images/pattern-hills.svg") bottom no-repeat,
+    url("./assets/images/bg-stars.svg") center no-repeat, var(--very-dark-blue);
+}
