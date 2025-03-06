@@ -2,13 +2,15 @@
 @import "@fontsource-variable/red-hat-text";
 
 :root {
-  --grayish-blue: hsl(237, 18%, 59%);
-  --soft-red: hsl(345, 95%, 68%);
+  --grayish-blue: #8486a9;
+  --soft-red: #fb6087;
 
-  --white: hsl(0, 0%, 100%);
-  --dark-desaturated-blue: hsl(236, 21%, 26%);
-  --very-dark-blue: hsl(235, 16%, 14%);
-  --very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+  --white: #ffffff;
+  --dark-desaturated-blue: #343650;
+  --very-dark-blue: #1e1f29;
+  --very-dark-mostly-black-blue: #191a24;
+
+  --easing: cubic-bezier(0.45, 0.03, 0.52, 0.96);
 }
 
 html {
@@ -16,6 +18,23 @@ html {
   font-size: 1em;
   color: var(--white);
   min-height: 100svh;
-  background: url("./assets/images/pattern-hills.svg") bottom no-repeat,
-    url("./assets/images/bg-stars.svg") center no-repeat, var(--very-dark-blue);
+  background: url("./assets/images/pattern-hills.svg") 85% 100% no-repeat,
+    url("./assets/images/bg-stars.svg") no-repeat, var(--very-dark-blue);
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (min-width: 768px) {
+  html {
+    background: url("./assets/images/pattern-hills.svg") bottom no-repeat,
+      url("./assets/images/bg-stars.svg") no-repeat, var(--very-dark-blue);
+  }
 }

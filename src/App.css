@@ -1,0 +1,53 @@
+.app-wrapper {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  padding: 70px;
+}
+
+h1 {
+  display: block;
+  align-self: center;
+  font-weight: 700;
+  font-size: clamp(1.125em, 1.5vw, 1.375em);
+  line-height: clamp(1.5em, 1.5vw, 1.8125em);
+  letter-spacing: clamp(0.3835225em, 1.5vw, 0.46875em);
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+footer {
+  justify-self: center;
+  align-self: flex-end;
+  display: flex;
+  gap: 56px;
+}
+
+a {
+  display: inline-block;
+  color: var(--grayish-blue);
+  transition: transform 0.3s var(--easing), color 0.3s var(--easing);
+  transform: scale(1) rotate(0deg); /* Explicit default transform */
+}
+
+a:hover {
+  color: var(--soft-red);
+}
+
+footer a:nth-child(1):hover {
+  transform: scale(1.5) rotate(-12deg);
+}
+
+footer a:nth-child(2):hover {
+  transform: scale(1.5) rotate(0deg);
+}
+
+footer a:nth-child(3):hover {
+  transform: scale(1.5) rotate(12deg);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
