@@ -142,6 +142,13 @@ export default function FlipCountdown() {
 
   return (
     <div className="flipCountdown">
+      <span
+        aria-label={`${time.days} days, ${time.hours} hours and ${
+          time.minutes + 1
+        } minutes left until launch`}
+        aria-live="polite"
+        className="sr-only"
+      ></span>
       <FlipCardContainer
         max="99"
         digit={time.days}
