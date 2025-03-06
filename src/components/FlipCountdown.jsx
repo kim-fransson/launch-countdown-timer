@@ -71,7 +71,7 @@ const FlipCardContainer = ({ digit, max, shuffle, label }) => {
 };
 
 export default function FlipCountdown() {
-  const targetDate = new Date("May 1, 2025 09:00"); // move to a zustand global state
+  const targetDate = new Date("May 7, 2025 09:56:30"); // move to a zustand global state
 
   const [time, setTime] = useState({
     ...getTimeDifference(targetDate),
@@ -106,22 +106,33 @@ export default function FlipCountdown() {
         return {
           ...newTime,
           daysShuffle:
-            newTime.days !== prevTime.days
+            newTime.days >= 0 && newTime.days !== prevTime.days
               ? !prevTime.daysShuffle
               : prevTime.daysShuffle,
+
+          // Toggle hoursShuffle if hours changed and (hours > 0 or days > 0)
           hoursShuffle:
+            (newTime.hours >= 0 || newTime.days > 0) &&
             newTime.hours !== prevTime.hours
               ? !prevTime.hoursShuffle
               : prevTime.hoursShuffle,
+
+          // Toggle minutesShuffle if minutes changed and (minutes > 0 or hours > 0 or days > 0)
           minutesShuffle:
+            (newTime.minutes >= 0 || newTime.hours > 0 || newTime.days > 0) &&
             newTime.minutes !== prevTime.minutes
               ? !prevTime.minutesShuffle
               : prevTime.minutesShuffle,
+
+          // Toggle secondsShuffle if seconds changed and (seconds > 0 or minutes > 0 or hours > 0 or days > 0)
           secondsShuffle:
+            (newTime.seconds >= 0 ||
+              newTime.minutes > 0 ||
+              newTime.hours > 0 ||
+              newTime.days > 0) &&
             newTime.seconds !== prevTime.seconds
               ? !prevTime.secondsShuffle
               : prevTime.secondsShuffle,
-          noAnimation: false,
         };
       });
     }, 1000);
