@@ -34,7 +34,7 @@ html {
 
 @media (min-width: 768px) {
   html {
-    background: url("./assets/images/pattern-hills.svg") bottom no-repeat,
-      url("./assets/images/bg-stars.svg") no-repeat, var(--very-dark-blue);
+    background: url("./assets/images/pattern-hills.svg") bottom repeat-x,
+      url("./assets/images/bg-stars.svg") repeat, var(--very-dark-blue);
   }
 }
