@@ -74,7 +74,7 @@ const FlipCardContainer = ({ digit, max, shuffle, label }) => {
 const FlipCountdown = memo(() => {
   const [targetDate, setTargetDate] = useLocalStorage(
     "targetDate",
-    new Date("Mars 7, 2025 13:34:30")
+    new Date("Mars 16, 2025 13:34:30")
   );
 
   const [time, setTime] = useState({
