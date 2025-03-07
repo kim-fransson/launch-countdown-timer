@@ -35,6 +35,11 @@ a:hover {
   color: var(--soft-red);
 }
 
+a:focus-visible {
+  outline: 2px solid var(--soft-red);
+  outline-offset: 2px;
+}
+
 footer a:nth-child(1):hover {
   transform: scale(1.5) rotate(-12deg);
 }
@@ -50,6 +55,23 @@ footer a:nth-child(3):hover {
 .icon {
   width: 24px;
   height: 24px;
+}
+
+button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grayish-blue);
+  cursor: pointer;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--soft-red);
+  outline-offset: 2px;
 }
 
 @media (min-width: 768px) {

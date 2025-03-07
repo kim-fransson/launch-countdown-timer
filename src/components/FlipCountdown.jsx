@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, memo } from "react";
 import { formatDigit, getTimeDifference } from "../utils";
-import { useEffect } from "react";
 
 import "./FlipCountdown.css";
 
@@ -70,7 +69,7 @@ const FlipCardContainer = ({ digit, max, shuffle, label }) => {
   );
 };
 
-export default function FlipCountdown() {
+const FlipCountdown = memo(() => {
   const targetDate = new Date("Mars 16, 2025 09:56:30"); // move to a zustand global state
 
   const [time, setTime] = useState({
@@ -175,4 +174,6 @@ export default function FlipCountdown() {
       />
     </div>
   );
-}
+});
+
+export default FlipCountdown;
