@@ -71,7 +71,7 @@ const FlipCardContainer = ({ digit, max, shuffle, label }) => {
 };
 
 export default function FlipCountdown() {
-  const targetDate = new Date("May 7, 2025 09:56:30"); // move to a zustand global state
+  const targetDate = new Date("Mars 16, 2025 09:56:30"); // move to a zustand global state
 
   const [time, setTime] = useState({
     ...getTimeDifference(targetDate),

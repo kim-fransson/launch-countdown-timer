@@ -2,7 +2,7 @@
   min-height: 100svh;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  padding: 70px;
+  padding: 24px;
 }
 
 h1 {
@@ -50,4 +50,10 @@ footer a:nth-child(3):hover {
 .icon {
   width: 24px;
   height: 24px;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding: 70px;
+  }
 }

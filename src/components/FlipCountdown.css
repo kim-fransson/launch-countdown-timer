@@ -1,13 +1,13 @@
 .flipCountdown {
   display: flex;
-  gap: 32px;
+  gap: 16px;
   justify-content: center;
 }
 
 .flipCardContainer {
   position: relative;
-  width: 148px;
-  height: 140px;
+  width: 70px;
+  height: 61px;
   perspective-origin: 50% 50%;
   perspective: 300px;
   border-radius: 8px;
@@ -19,12 +19,13 @@
   margin-top: 26px;
   display: block;
   font-weight: 700;
-  font-size: 0.875em;
-  line-height: 1.1875em;
   text-align: center;
-  letter-spacing: 0.369921875em;
   text-transform: uppercase;
   color: var(--grayish-blue);
+
+  font-size: 0.4375em;
+  line-height: 0.5625em;
+  letter-spacing: 0.184960625em;
 }
 
 .upperCard::after,
@@ -37,8 +38,8 @@
   position: absolute;
   border-radius: 100%;
   background: var(--very-dark-mostly-black-blue);
-  height: 12px;
-  width: 12px;
+  height: 6px;
+  width: 6px;
 }
 
 .upperCard::after {
@@ -94,7 +95,7 @@
 .upperCard span,
 .lowerCard span,
 .flipCard span {
-  font-size: 5em;
+  font-size: 2.25em;
   font-weight: 700;
   color: var(--soft-red);
 }
@@ -203,5 +204,39 @@
   }
   100% {
     filter: brightness(0.4);
+  }
+}
+
+@media (min-width: 768px) {
+  .flipCountdown {
+    gap: 32px;
+  }
+
+  .flipCardContainer {
+    width: 148px;
+    height: 140px;
+  }
+
+  .flipCardContainer__label {
+    margin-top: 26px;
+    font-size: 0.875em;
+    line-height: 1.1875em;
+    letter-spacing: 0.369921875em;
+  }
+
+  .upperCard::after,
+  .upperCard::before,
+  .lowerCard::after,
+  .lowerCard::before,
+  .flipCard::after,
+  .flipCard::before {
+    height: 12px;
+    width: 12px;
+  }
+
+  .upperCard span,
+  .lowerCard span,
+  .flipCard span {
+    font-size: 5em;
   }
 }
