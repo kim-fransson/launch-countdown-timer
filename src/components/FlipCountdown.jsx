@@ -3,6 +3,8 @@ import { useRef, useState, useEffect, memo } from "react";
 import { formatDigit, getTimeDifference } from "../utils";
 
 import "./FlipCountdown.css";
+import { addDays } from "date-fns";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const FlipCard = ({ animation, digit }) => {
   return (
@@ -70,7 +72,10 @@ const FlipCardContainer = ({ digit, max, shuffle, label }) => {
 };
 
 const FlipCountdown = memo(() => {
-  const targetDate = new Date("Mars 16, 2025 09:56:30"); // move to a zustand global state
+  const [targetDate, setTargetDate] = useLocalStorage(
+    "targetDate",
+    new Date("Mars 7, 2025 13:34:30")
+  );
 
   const [time, setTime] = useState({
     ...getTimeDifference(targetDate),
@@ -85,21 +90,13 @@ const FlipCountdown = memo(() => {
       setTime((prevTime) => {
         const newTime = getTimeDifference(targetDate);
 
-        // Stop the timer if the countdown reaches zero
         if (
           newTime.days <= 0 &&
           newTime.hours <= 0 &&
           newTime.minutes <= 0 &&
           newTime.seconds <= 0
         ) {
-          clearInterval(timerID);
-          return {
-            days: 0,
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
-            noAnimation: true,
-          };
+          setTargetDate(addDays(new Date(), 30));
         }
 
         return {
